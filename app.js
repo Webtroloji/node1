@@ -2,8 +2,12 @@ const express = require('express')
 const app = express()
 const port = 3000
 
+app.use(express.static('node_modules'));
+app.use(express.static('public'));
+app.set('view engine', 'ejs');
+
 app.get('/', (req, res) => {
-    res.send('Hello World! Selam')
+    res.render('home')
 })
 
 app.listen(process.env.PORT || port, () => {
